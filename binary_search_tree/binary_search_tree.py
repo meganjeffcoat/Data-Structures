@@ -64,8 +64,13 @@ class BinarySearchTree:
 
     # * `get_max` returns the maximum value in the binary search tree.
     # go to the right until reach Null
+    # if right == None, return value
+    # else keep going until null is reached
     def get_max(self):
-        pass
+        if self.right == None:
+            return self.value
+        else:
+            return self.right.get_max()
 
     # * `for_each` performs a traversal of _every_ node in the tree, executing
     # the passed-in callback function on each tree node value. There is a myriad of ways to
