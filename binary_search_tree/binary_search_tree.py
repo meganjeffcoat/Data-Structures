@@ -45,18 +45,30 @@ class BinarySearchTree:
     # Start from root and traverse the tree
     # We can stop at the first instance of a value
     # We know it's not found if we get to a node that doesn't have children
-
+    # target == root, return true
+    # target < root, go left
+    # target > root, go right
+    # if target is found return true, else return false
     def contains(self, target):
-        pass
+        if target == self.value:
+            return True
+        else:
+            if target < self.value:
+                if self.left == None:
+                    return False
+                return self.left.contains(target)
+            else:
+                if self.right == None:
+                    return False
+                return self.right.contains(target)
 
     # * `get_max` returns the maximum value in the binary search tree.
-
+    # go to the right until reach Null
     def get_max(self):
         pass
 
     # * `for_each` performs a traversal of _every_ node in the tree, executing
     # the passed-in callback function on each tree node value. There is a myriad of ways to
     # perform tree traversal; in this case any of them should work.
-
     def for_each(self, cb):
         pass
