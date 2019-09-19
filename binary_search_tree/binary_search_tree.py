@@ -40,6 +40,25 @@ class BinarySearchTree:
             else:
                 self.right.insert(value)
 
+        # Current node is self
+        # Check if self.value is bigger or smaller than new value - left or right
+        # We go left or right, then check if node exists
+        # if node does not exist then create a node there
+        # if node does exist use recursion! Call insert on that node
+        # if value < self.value:
+        #     if not self.left:
+        #         self.left = BinarySearchTree(value)
+        #     else:
+        #         self.left.insert(value)
+        # else:
+        #     if not self.right:
+        #         self.right = BinarySearchTree(value)
+        #     else:
+        #         self.right.insert(value)
+        
+
+
+
     # * `contains` searches the binary search tree for the input value,
     # returning a boolean indicating whether the value exists in the tree or not.
     # Start from root and traverse the tree
@@ -62,6 +81,24 @@ class BinarySearchTree:
                     return False
                 return self.right.contains(target)
 
+    # Check if the current value is the target, if so we're done
+    # otherwise, left or right based on bigger or smaller, then 
+    # call contains again
+        # if self.value == target:
+        #     return True
+        # else:
+        #     if target < self.value:
+        #         if not self.left:
+        #             return False
+        #         else:
+        #             return self.left.contains(target)
+        #     else:
+        #         if not self.right:
+        #             return False
+        #         else:
+        #             return self.right.contains(target)
+    
+
     # * `get_max` returns the maximum value in the binary search tree.
     # go to the right until reach Null
     # if right == None, return value
@@ -72,6 +109,12 @@ class BinarySearchTree:
         else:
             return self.right.get_max()
 
+        # # max node is farthest to the right
+        # if not self.right:
+        #     return self.value
+        # return self.right.get_max()
+
+
     # * `for_each` performs a traversal of _every_ node in the tree, executing
     # the passed-in callback function on each tree node value. There is a myriad of ways to
     # perform tree traversal; in this case any of them should work.
@@ -81,3 +124,10 @@ class BinarySearchTree:
             self.left.for_each(cb)
         if self.right != None:
             self.right.for_each(cb)
+
+        # cb(self.value)
+        # if self.left:
+        #     self.left.for_each(cb)
+        # if self.right:
+        #     self.right.for_each(cb)
+
